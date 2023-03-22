@@ -1,6 +1,16 @@
-import React from "react";
+import React, {useEffect} from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { motion } from "framer-motion";
+
 
 const Contact = () => {
+	useEffect(() => {
+		AOS.init({
+			duration: 1000,
+		});
+		AOS.refresh();
+	}, []);
 	return (
 		<>
 			<div className="wrapper my-[150px] text-white">
@@ -31,14 +41,25 @@ const Contact = () => {
 						</div>
 					</div>
 					<div className="w-full lg:w-[48%]">
-						<img src="/earth.png" alt="" />
+						<img
+							
+							data-aos="zoom-out-in"
+							src="/earth.png"
+							alt=""
+						/>
 					</div>
 				</div>
-				<div className="contain g  mt-[100px]   py-8 flex-col md:flex-row items-center justify-center md:justify-end">
-        <div className="w-full md:w-[48%]">
-						<img src="/plane.png" className="mx-auto md:mx-0 mt-[-6rem] lg:mt-[-10rem]" alt="" />
+				<div className="contain g  mt-[100px]   flex-col items-center justify-center py-8 md:flex-row md:justify-end">
+					<div className="w-full md:w-[48%]">
+						<motion.img
+							whileHover={{ scale: 1.1 }}
+							transition={{ duration: 0.4 }}
+							src="/plane.png"
+							className="mx-auto mt-[-6rem] md:mx-0 lg:mt-[-10rem]"
+							alt=""
+						/>
 					</div>
-          <div className=" w-full md:w-[48%]">
+					<div className=" w-full md:w-[48%]">
 						<h1 className="heading text-center md:text-left">
 							Get Started Today
 						</h1>
